@@ -58,7 +58,7 @@ namespace Glass.Python.Api.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult PutIteam(int id, [FromBody] Item item)
+        public IActionResult PutItem(int id, [FromBody] Item item)
         {
             if (id != item.Id)
             {

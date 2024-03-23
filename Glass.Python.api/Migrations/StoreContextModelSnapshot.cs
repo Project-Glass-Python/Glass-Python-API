@@ -85,7 +85,7 @@ namespace Glass.Python.api.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("Rating");
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("Glass.Python.Domain.Catalog.Rating", b =>
