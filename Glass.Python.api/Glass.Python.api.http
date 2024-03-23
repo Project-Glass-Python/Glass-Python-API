@@ -1,6 +1,6 @@
 @Glass.Python.api_HostAddress = http://localhost:5171
 
-GET {{Glass.Python.api_HostAddress}}/weatherforecast/
+GET http://localhost:5171/weatherforecast/
 Accept: application/json
 
 ###
