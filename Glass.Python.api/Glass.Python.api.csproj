@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Glass.Python.Domain\Glass.Python.Domain.csproj" />
+    <ProjectReference Include="..\Glass.Python.Data\Glass.Python.Data.csproj" />
   </ItemGroup>
 
 </Project>
