@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Glass.Python.Domain.Catalog;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Glass.Python.Data;
 
 namespace Glass.Python.Api.Controllers
 {
@@ -8,6 +8,16 @@ namespace Glass.Python.Api.Controllers
     [Route("[controller]")]
     public class CatalogController : ControllerBase
     {
+
+        //setup context
+        private readonly StoreContext _db;
+
+        public CatalogController(StoreContext db)
+        {
+            _db = db;
+        }
+
+
         [HttpGet]
         public IActionResult GetItems()
         {
@@ -17,7 +27,7 @@ namespace Glass.Python.Api.Controllers
                 new Item("Shorts", "Ohio State shorts.", "nike", 44.99m),
             };
 
-            return Ok(items);
+            return Ok(_db.Items);
         }
 
         [HttpGet("{id:int}")]
