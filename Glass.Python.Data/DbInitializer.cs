@@ -1,5 +1,6 @@
 using Glass.Python.Domain.Catalog;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace Glass.Python.Data
 {
