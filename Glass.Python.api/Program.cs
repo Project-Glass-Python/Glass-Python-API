@@ -1,11 +1,15 @@
 using Glass.Python.Data;
 using Microsoft.EntityFrameworkCore;
-
+string x;
 var builder = WebApplication.CreateBuilder(args);
+
+string storeConnectionString = builder.Configuration.GetConnectionString("StoreConnection") ??
+    throw new ArgumentNullException("ConnectionString:StoreConnection");
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddDbContext<StoreContext>(options =>
-    options.UseSqlite("Data Source=../Registrar.sqlite",
+    options.UseSqlServer(storeConnectionString,
     b => b.MigrationsAssembly("Glass.Python.api"))
     );
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -22,5 +26,7 @@ if (app.Environment.IsDevelopment())
 }
 app.MapControllers();
 app.UseHttpsRedirection();
+
+
 
 app.Run();
